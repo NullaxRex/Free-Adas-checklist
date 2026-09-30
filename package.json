@@ -1,0 +1,23 @@
+{
+  "name": "collisioniq",
+  "version": "3.0.0",
+  "description": "ADAS calibration requirements lookup and documentation platform for collision repair shops",
+  "main": "server.js",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning test/smoke.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "express-session": "^1.18.0",
+    "helmet": "^7.2.0",
+    "multer": "^2.0.2"
+  },
+  "author": "Collision IQ LLC (owned by CuelJuris)",
+  "license": "UNLICENSED"
+}
