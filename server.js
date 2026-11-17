@@ -3,7 +3,7 @@
 /**
  * Copyright (c) Collision IQ LLC, owned by CuelJuris. All rights reserved.
  *
- * CollisionIQ v3
+ * Calivera v3
  * - Free public ADAS calibration requirement lookup (/check) with lead capture
  * - Shop accounts: job documentation (scans, calibration, photos), shareable reports
  * - Admin view of leads and usage (ADMIN_EMAIL)
@@ -25,9 +25,9 @@ const { runADASEngine } = require('./adasEngine');
 const scrypt = promisify(crypto.scrypt);
 
 // ─── Brand ───────────────────────────────────────────────────────────────────
-const BRAND = 'CollisionIQ';
-// Full CollisionIQ (paid, 14-day free trial). The free check sends people here.
-const PAID_URL = (process.env.PAID_URL || 'https://collisioniq.up.railway.app').replace(/\/+$/, '');
+const BRAND = 'Calivera';
+// Full Calivera (paid, 14-day free trial). The free check sends people here.
+const PAID_URL = (process.env.PAID_URL || 'https://getcalivera.com').replace(/\/+$/, '');
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 const PROD = process.env.NODE_ENV === 'production';
@@ -322,13 +322,13 @@ ${noindex ? '<meta name="robots" content="noindex,nofollow">' : ''}
 <title>${esc(title)} — ${BRAND}</title>
 <style>${CSS}</style></head>
 <body>
-<div class="nav"><a class="brand" href="/"><span class="mark">CIQ</span>Collision<i>IQ</i></a>${nav}</div>
+<div class="nav"><a class="brand" href="/"><span class="mark">CV</span>Cali<i>vera</i></a>${nav}</div>
 <div class="wrap">
 ${flash ? `<div class="flash">${esc(flash)}</div>` : ''}
 ${flashErr ? `<div class="flash err">${esc(flashErr)}</div>` : ''}
 ${body}
 </div>
-<div class="footer">© ${new Date().getFullYear()} <b>${BRAND}</b> · All rights reserved<br><a href="${esc(PAID_URL)}/">Full CollisionIQ: sign-off, QC approval and insurer copies</a> · <a href="/terms">Terms &amp; Disclaimer</a></div>
+<div class="footer">© ${new Date().getFullYear()} <b>${BRAND}</b> · All rights reserved<br><a href="${esc(PAID_URL)}/">Full Calivera: sign-off, QC approval and insurer copies</a> · <a href="/terms">Terms &amp; Disclaimer</a></div>
 </body></html>`;
 }
 
@@ -441,8 +441,8 @@ app.get('/', (req, res) => {
         <li><b>Share.</b> Send an insurer, fleet or customer a read-only report link, or print it to PDF.</li>
       </ul></div>
     <div class="card"><h2 style="margin-top:0">Running a shop?</h2>
-      <p>Full CollisionIQ adds technician sign-off, QC approval, per-technician access and an insurer copy for every job. Free for 14 days, no credit card.</p>
-      <a class="btn" href="${esc(PAID_URL)}/">See full CollisionIQ</a></div>`,
+      <p>Full Calivera adds technician sign-off, QC approval, per-technician access and an insurer copy for every job. Free for 14 days, no credit card.</p>
+      <a class="btn" href="${esc(PAID_URL)}/">See full Calivera</a></div>`,
   });
 });
 
@@ -528,7 +528,7 @@ app.get('/check', (req, res) => {
       <div><button class="btn" type="submit" id="lgo" style="width:100%">Notify me</button></div></div>
       <p class="fine" id="lmsg">We email occasional ADAS requirement updates. Unsubscribe anytime.</p></form>
   </div>
-  <div class="card cta"><p>Knowing what's required is half of it. Being able to prove it was done is the other half. CollisionIQ documents every job with scans, calibration results and photos, and gives you a shareable report.</p>
+  <div class="card cta"><p>Knowing what's required is half of it. Being able to prove it was done is the other half. Calivera documents every job with scans, calibration results and photos, and gives you a shareable report.</p>
     <a href="/register">Create your free account &rarr;</a></div>
 </div>
 <p class="fine">Informational only. Requirements are summarized from published OEM position statements and may change. Always confirm against the manufacturer's current service information before performing or signing off on repairs. This tool is not legal advice and does not certify compliance with any law or standard.</p>
@@ -893,7 +893,7 @@ function reportHtml(j, shopName, photos, photoBase) {
   const gapsR = docGaps(j, photos.length);
   return `<div class="card">
   <div class="rpt-head"><div>
-    <div class="rpt-brand"><span class="mark">CIQ</span><span>Collision<i style="font-style:normal;background:var(--yellow);padding:0 .15rem">IQ</i></span></div>
+    <div class="rpt-brand"><span class="mark">CV</span><span>Cali<i style="font-style:normal;background:var(--yellow);padding:0 .15rem">vera</i></span></div>
     <h1 style="margin:0">ADAS Calibration<br>Documentation Record</h1>
     <p class="sub" style="margin:.4rem 0 0">${esc(shopName)}</p></div>
     <div style="text-align:right"><div class="mono" style="font-size:1.1rem;font-weight:500">${jobCode(j.id)}</div>
@@ -976,8 +976,8 @@ app.get('/terms', (req, res) => {
     title: 'Terms & Disclaimer',
     body: `<div class="card"><h1>Terms &amp; Disclaimer</h1>
     <p class="sub">Draft terms — have counsel review before relying on them.</p>
-    <h2>Informational use</h2><p style="font-size:.92rem">CollisionIQ summarizes publicly available OEM position statements and repair guidance to help shops identify calibration and scan requirements. Requirements change. Always confirm against the vehicle manufacturer's current service information before performing or signing off on any repair. CollisionIQ does not replace OEM repair procedures.</p>
-    <h2>No compliance certification</h2><p style="font-size:.92rem">Records created in CollisionIQ reflect information entered by the shop. CollisionIQ does not verify that work was performed and does not certify compliance with any law, regulation, standard or insurer requirement. Nothing here is legal advice.</p>
+    <h2>Informational use</h2><p style="font-size:.92rem">Calivera summarizes publicly available OEM position statements and repair guidance to help shops identify calibration and scan requirements. Requirements change. Always confirm against the vehicle manufacturer's current service information before performing or signing off on any repair. Calivera does not replace OEM repair procedures.</p>
+    <h2>No compliance certification</h2><p style="font-size:.92rem">Records created in Calivera reflect information entered by the shop. Calivera does not verify that work was performed and does not certify compliance with any law, regulation, standard or insurer requirement. Nothing here is legal advice.</p>
     <h2>Your data</h2><p style="font-size:.92rem">Shop records and uploaded files are visible only to the shop's users and to anyone the shop shares a report link with. Regenerating a link revokes the old one. Email addresses submitted through the free check are used to send ADAS requirement updates; ask us to remove yours at any time.</p>
     <h2>Availability</h2><p style="font-size:.92rem">The service is provided as is, without warranty. Keep your own copies of records you are required to retain.</p></div>`,
   });
@@ -992,6 +992,6 @@ app.use((err, req, res, next) => {
 });
 
 if (require.main === module) {
-  app.listen(PORT, () => console.log(`CollisionIQ running on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Calivera running on port ${PORT}`));
 }
 module.exports = app;
