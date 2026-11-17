@@ -1,6 +1,6 @@
-# CollisionIQ v3
+# Calivera v3
 
-© CollisionIQ · All rights reserved. Proprietary software (see LICENSE).
+© Calivera · All rights reserved. Proprietary software (see LICENSE).
 
 Free ADAS calibration requirement lookup (`/check`) plus shop accounts for documenting scans, calibrations and photos, with shareable read-only reports.
 
